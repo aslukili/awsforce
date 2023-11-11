@@ -1,7 +1,9 @@
-%dw 2.0
+%dw 2.5
+input payload application/json
 output application/json
 ---
 {
+  "ExclusiveStartKey": payload."LastEvaluatedKey",
   "TableName": "SearchLogs",
   "FilterExpression": "LastUpdated >= :val",
   "ExpressionAttributeValues": {
